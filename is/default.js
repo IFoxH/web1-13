@@ -1,3 +1,38 @@
+@charset "utf-8";
+
+body{
+  background-color: mediumaquamarine;
+}
+
+.center{
+  margin: 0 auto 0 auto;
+  width: 50%;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  float: left;
+  margin-right: 1%;
+}
+
+.image:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+var thmubs = docment.querySelectorAll('.thumb');
+for(idx in thmubs){
+  thmubs[idx].onclick = function(){
+    document.getElementById("bigimg").src = 'img/' + this.dataset.image + '.jpg';
+  }
+}
+
 var separate_time = function(time){
   var sec   =Math.floor((time / 1000) % 60);
   var min   =Math.floor((time / 1000 / 60) % 60);
@@ -55,3 +90,7 @@ if(last_date){
 
 var current_time = new Date();
 setCookie('lastDate',current_time.toString(),7);
+
+document.getElementById('remove_cookie').onsubmit = function(){
+  setCookie('lastDate',"",0);
+};
