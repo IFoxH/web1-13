@@ -13,7 +13,7 @@ var separate_time = function(time){
   return [sec, min, hours, days];
 }
 
-docment.getElementById('form').select.onchange = funtion(){
+docment.getElementById('form').select.onchange = function(){
   location.href = document.getElementById('form').select.value;
 }
 
