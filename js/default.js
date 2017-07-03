@@ -30,7 +30,7 @@ if(filename === 'other.html'){
 }
 opt.selected = true;
 
-docment.getElementById('form').select.onchange = function(){
+document.getElementById('form').select.onchange = function(){
   location.href = document.getElementById('form').select.value;
 }
 
