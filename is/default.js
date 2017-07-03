@@ -6,6 +6,27 @@ var separate_time = function(time){
   return [sec, min, hours, days];
 }
 
+docment.getElementById('form').select.onchange = funtion(){
+  location.href = document.getElementById('form').select.value;
+}
+
+function getFileName(){
+  return window.location.href.split('/').pop();
+}
+
+var filename = getFileName();
+var opt;
+if(filename === 'other.html'){
+  opt = document.querySelector('option[value"other.html"]');
+}else{
+  opt = document.querySelector('option[value="index.html"]');
+}
+opt.selected = true;
+
+docment.getElementById('form').select.onchange = function(){
+  location.href = document.getElementById('form').select.value;
+}
+
 var update = function(){
   var now = new Date();
   var target = new Date(2020,7,24,0,0,0,0);
@@ -24,3 +45,13 @@ var refresh= function(){
   setTimeout(update, 1000);
 }
 update();
+
+var last_date = getCookie('lastDate');
+if(last_date){
+    document.getElementById('cookie').tectContent = '前回訪れた時間:' + last_date;
+}else{
+  document.getElementById('cookie').textContent = 'はじめまして';
+}
+
+var current_time = new Date();
+setCookie('lastDate',current_time.toString(),7);
